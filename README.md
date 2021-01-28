@@ -1,6 +1,7 @@
 ## Overview
 
-In this application, I started to experiment with socket.io by creating a live messaging app.\ To clone the repository: "git clone https://github.com/Jonathan-Villa/livechat-react-app.git" -- "yarn install" to install all dependencies.\
+In this application, I started to experiment with socket.io by creating a live messaging app.\ 
+To clone the repository: "git clone https://github.com/Jonathan-Villa/livechat-react-app.git" -- "yarn install" to install all dependencies.\
 Enter the name of the chat room and then click "Chat" -- you will be directed to the chat room.
 
 ## Available Scripts
