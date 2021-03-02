@@ -2,7 +2,7 @@ import React from "react";
 import socketIO from "socket.io-client";
 
 const MESSAGE_NOTIFICATION = "NewMessage";
-const socketURL = "http://localhost:4000";
+const socketURL = "https://livechat-app-jv.herokuapp.com/";
 
 function useChatSocket(roomId) {
   const [messages, setMessage] = React.useState([]);
@@ -10,7 +10,7 @@ function useChatSocket(roomId) {
 
   React.useEffect(() => {
       
-    socketRef.current = socketIO(socketURL, { query: { roomId } });
+    socketRef.current = socketIO(socketURL, { query: { roomId },});
 
     socketRef.current.on(MESSAGE_NOTIFICATION, (message) => {
       const newMessage = {

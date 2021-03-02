@@ -58,8 +58,13 @@ function Home() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100%",
+    height: "auto",
     width: "100%",
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    position:"relative",
+    top:"50%"
   },
   cardWrapper: {
     position: "relative",
@@ -71,7 +76,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     boxSizing: "border-box",
     padding: "20px",
-    marginTop: "50%",
+    
+  
   },
   cardContentWrapper: {
     height: "100%",
