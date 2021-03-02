@@ -1,8 +1,13 @@
-const server = require("http").createServer();
-const io = require("socket.io")(server, { cors: { origin: "*" } });
+const app = require("express")();
+const http = require("http").Server(app);
+const io = require("socket.io")(http, { cors: { origin: "*" } });
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const NEW_MESSAGE = "NewMessage";
+
+app.get('/api', (req,res)=> {
+  res.send('<h1>Hello</h1>')
+})
 
 io.on("connection", (socket) => {
   const { roomId } = socket.handshake.query;
@@ -17,6 +22,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(PORT, () => {
+http.listen(PORT, () => {
   console.log("server is up");
 });
