@@ -58,13 +58,13 @@ function Home() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "auto",
+    height: "100vh",
     width: "100%",
     display:"flex",
     justifyContent:"center",
     alignItems:"center",
     position:"relative",
-    top:"50%"
+    top:"50%",
   },
   cardWrapper: {
     position: "relative",

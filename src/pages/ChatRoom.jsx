@@ -75,7 +75,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: "30px",
     paddingBottom: "30px",
-
     [theme.breakpoints.down("md")]: {
       paddingTop: "30px",
       paddingBottom: "0px",
@@ -83,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   chatRoomWrapper: {
-    height: "800px",
+    height: "90vh",
     width: "100%",
     boxSizing: "border-box",
     overflow: "hidden",
@@ -116,6 +115,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "15px",
   },
   txtMessageWrapper: {
+    height:"auto",
     position: "relative",
     padding: "20px",
     boxSizing: "border-box",
