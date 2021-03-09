@@ -2,7 +2,7 @@ const app = require("express")();
 const http = require("http").Server(app);
 const io = require("socket.io")(http, { 
   cors: { 
-    origin: "https://603da57e6686922f5d7e27f3--livechatreactapp.netlify.app", 
+    origin: "http://localhost:3000", 
     methods: ["GET", "POST"], 
     credentials:true
   }  

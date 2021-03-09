@@ -2,7 +2,10 @@ import React from "react";
 import socketIO from "socket.io-client";
 
 const MESSAGE_NOTIFICATION = "NewMessage";
-const socketURL = "https://livechat-app-jv.herokuapp.com/";
+const socketURL = "http://localhost:4000/";
+
+// https://livechat-app-jv.herokuapp.com/
+
 
 function useChatSocket(roomId) {
   const [messages, setMessage] = React.useState([]);

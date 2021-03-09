@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "../App.scss";
 import Container from "@material-ui/core/Container";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -9,7 +9,7 @@ import useChatSocket from "../socket/useChatSocket";
 import IconButton from "@material-ui/core/IconButton";
 import Zoom from "@material-ui/core/Zoom";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
-import { FaArrowCircleUp } from "react-icons/fa";
+import { FaArrowCircleUp, FaArrowCircleLeft } from "react-icons/fa";
 
 
 

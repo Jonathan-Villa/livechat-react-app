@@ -11,10 +11,15 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 
 function Home() {
   const classes = useStyles();
-  const [roomName, setRoomName] = React.useState("");
+  const [user, setUser] = React.useState({ roomName: "", userId: "" });
 
   const handleChange = (e) => {
-    setRoomName(e.target.value);
+    let value = e.target.value;
+    setUser({ ...user, [e.target.name]: value });
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ ...user, [e.target.name]: value })
+    );
   };
 
   return (
@@ -34,8 +39,21 @@ function Home() {
               type="text"
               color="primary"
               variant="outlined"
+              label="Username"
+              name="userId"
+              value={user.userId}
+            />
+            <TextField
+              style={{ marginTop: "10px" }}
+              required
+              fullWidth
+              size="small"
+              type="text"
+              color="primary"
+              variant="outlined"
               label="Chat Name"
-              value={roomName}
+              name="roomName"
+              value={user.roomName}
             />
             <div style={{ marginTop: "10px" }}>
               <Button
@@ -44,7 +62,7 @@ function Home() {
                 component={Link}
                 variant="outlined"
                 color="primary"
-                to={`/${roomName}`}
+                to={`/${user.userId}`}
               >
                 Chat
               </Button>
@@ -60,11 +78,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
     width: "100%",
-    display:"flex",
-    justifyContent:"center",
-    alignItems:"center",
-    position:"relative",
-    top:"50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
+    top: "50%",
   },
   cardWrapper: {
     position: "relative",
@@ -76,8 +94,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     boxSizing: "border-box",
     padding: "20px",
-    
-  
   },
   cardContentWrapper: {
     height: "100%",
