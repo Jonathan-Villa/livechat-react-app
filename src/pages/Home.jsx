@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory, link, Link } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
@@ -16,15 +16,16 @@ function Home() {
   const handleChange = (e) => {
     let value = e.target.value;
     setUser({ ...user, [e.target.name]: value });
-    localStorage.setItem(
-      "user",
-      JSON.stringify({ ...user, [e.target.name]: value })
-    );
+    localStorage.setItem("user", JSON.stringify(user));
   };
 
   return (
     <Container maxWidth="xs" className={classes.root}>
-      <Card onChange={handleChange} className={classes.cardWrapper}>
+      <Card
+        component="form"
+        onChange={handleChange}
+        className={classes.cardWrapper}
+      >
         <CardContent className={classes.cardContentWrapper}>
           <CardHeader
             title="Live Chat"
@@ -57,12 +58,12 @@ function Home() {
             />
             <div style={{ marginTop: "10px" }}>
               <Button
+                component={Link}
+                to={`/${user.roomName}`}
                 fullWidth
                 className={classes.btnEnterRoom}
-                component={Link}
                 variant="outlined"
                 color="primary"
-                to={`/${user.userId}`}
               >
                 Chat
               </Button>

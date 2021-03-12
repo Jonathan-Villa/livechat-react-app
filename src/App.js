@@ -9,9 +9,9 @@ function App() {
     <>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path='/:userId' component={MessagesBox}/>
-        <Route exact path="/:userId&roomId" component={ChatRoom} />
-        <Route />
+        <Route  path='/:userId' component={MessagesBox}/>
+        <Route  path="/:userId/?roomId" component={ChatRoom} />
+      
       </Switch>
     </>
   );
