@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, link, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
@@ -11,7 +11,7 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 
 function Home() {
   const classes = useStyles();
-  const [user, setUser] = React.useState({ roomName: "", userId: "" });
+  const [user, setUser] = React.useState({ roomId: "", userId: "" });
 
   const handleChange = (e) => {
     let value = e.target.value;
@@ -53,13 +53,13 @@ function Home() {
               color="primary"
               variant="outlined"
               label="Chat Name"
-              name="roomName"
-              value={user.roomName}
+              name="roomId"
+              value={user.roomId}
             />
             <div style={{ marginTop: "10px" }}>
               <Button
                 component={Link}
-                to={`/${user.roomName}`}
+                to={`/${user.userId}`}
                 fullWidth
                 className={classes.btnEnterRoom}
                 variant="outlined"

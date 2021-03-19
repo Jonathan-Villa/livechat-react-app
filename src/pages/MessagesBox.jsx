@@ -1,7 +1,7 @@
 import React from "react";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import IconButton from "@material-ui/core/IconButton";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import useChatSocket from "../socket/useChatSocket";
 
@@ -40,34 +40,32 @@ function MessagesBox() {
 export default MessagesBox;
 
 function Message() {
-  const [input, setInput] = React.useState({ chatRoom: "", textMsg: " " });
+  const [input, setInput] = React.useState({ roomId: "", userId: " " });
   const history = useHistory();
+
   React.useEffect(() => {
     const getFields = () => {
       let input = JSON.parse(localStorage.getItem("user"));
-      setInput({ chatRoom: input.roomName, textMsg: input.userId });
+      setInput({ roomId: input.roomId, userId: input.userId });
     };
-
     getFields();
   }, []);
 
   const handleClick = (e) => {
-    history.push({
-      pathname:`${input.textMsg}`,
-      search:`${input.chatRoom}`
-    });
+    history.push(`${input.userId}`);
   };
 
   return (
     <div onClick={handleClick} className="messages-boxes">
-      <div className="messages-boxes-inner-wrap">
-        <div className="messages-chat-room-name">
-          <h3>{input.chatRoom}</h3>
-          <div className="messages-boxes-p">
-            <p>{input.textMsg.split(" ").splice(0, 20).join(" ")}</p>
+ 
+        <div className="messages-boxes-inner-wrap">
+          <div className="messages-chat-room-name">
+            <h3>{input.roomId}</h3>
+            <div className="messages-boxes-p">
+              <p>{input.userId.split(" ").splice(0, 20).join(" ")}</p>
+            </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }
