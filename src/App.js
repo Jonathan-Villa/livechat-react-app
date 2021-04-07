@@ -5,14 +5,17 @@ import ChatRoom from "./pages/ChatRoom";
 import MessagesBox from "./pages/MessagesBox";
 
 function App() {
-  const { userId } = useRouteMatch();
+  const { userId, roomId } = useRouteMatch();
 
   return (
     <>
       <Switch>
+        <>
+          <Route path={`/:${userId}/:${roomId}`} component={ChatRoom} />
+        </>
+
         <Route exact path="/" component={Home} />
-        <Route path={`${userId}`} component={MessagesBox} />
-        <Route path={`${userId}/:roomId`} component={ChatRoom} />
+        <Route path={`/:${userId}`} component={MessagesBox} />
       </Switch>
     </>
   );

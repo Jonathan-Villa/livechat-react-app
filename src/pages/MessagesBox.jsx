@@ -52,7 +52,7 @@ function Message() {
   }, []);
 
   const handleClick = (e) => {
-    history.push(`${input.userId}`);
+    history.push(`${input.userId}/${input.roomId}`);
   };
 
   return (
